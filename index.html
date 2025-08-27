@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infosphere - Tech Reviews & Platform Insights</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <span class="logo-text">Infosphere</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="articles.html" class="nav-link">Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#platforms" class="nav-link">Platforms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Explore the <span class="gradient-text">Digital Universe</span>
+                    </h1>
+                    <p class="hero-description">
+                        Your gateway to cutting-edge technology reviews, platform insights, and product recommendations that shape tomorrow's digital landscape.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="articles.html" class="btn btn-primary">Explore Articles</a>
+                        <a href="products.html" class="btn btn-outline">Latest Reviews</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-cards">
+                        <div class="card card-1">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Tech Reviews</span>
+                        </div>
+                        <div class="card card-2">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Platform Analysis</span>
+                        </div>
+                        <div class="card card-3">
+                            <i class="fas fa-rocket"></i>
+                            <span>Innovation Insights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search articles, products, platforms..." class="search-input">
+                        <button class="search-btn">Search</button>
+                    </div>
+                    <div class="category-filters">
+                        <button class="category-btn active" data-category="all">All</button>
+                        <button class="category-btn" data-category="technology">Technology</button>
+                        <button class="category-btn" data-category="lifestyle">Lifestyle</button>
+                        <button class="category-btn" data-category="business">Business</button>
+                        <button class="category-btn" data-category="health">Health</button>
+                        <button class="category-btn" data-category="travel">Travel</button>
+                        <button class="category-btn" data-category="education">Education</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Articles Section -->
+        <section id="articles" class="featured-articles">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Articles</h2>
+                    <p class="section-subtitle">Latest insights from various topics</p>
+                </div>
+                <div class="articles-grid" id="articlesGrid">
+                    <!-- Articles will be dynamically loaded here -->
+                </div>
+                <div class="pagination" id="articlesPagination">
+                    <!-- Pagination will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Detail Section -->
+        <section id="article-detail" class="article-detail" style="display: none;">
+            <div class="container">
+                <div class="article-detail-nav">
+                    <button class="btn btn-outline back-to-articles" onclick="showArticlesList()">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Articles
+                    </button>
+                    <div class="article-detail-actions">
+                        <button class="btn btn-outline share-article">
+                            <i class="fas fa-share"></i>
+                            Share
+                        </button>
+                        <button class="btn btn-outline bookmark-article">
+                            <i class="fas fa-bookmark"></i>
+                            Save
+                        </button>
+                    </div>
+                </div>
+                <article class="article-detail-content" id="articleDetailContent">
+                    <!-- Article content will be loaded here -->
+                </article>
+                <div class="article-detail-footer">
+                    <div class="article-navigation">
+                        <button class="btn btn-outline prev-article" id="prevArticle" onclick="navigateToPrevArticle()">
+                            <i class="fas fa-chevron-left"></i>
+                            Previous Article
+                        </button>
+                        <button class="btn btn-outline next-article" id="nextArticle" onclick="navigateToNextArticle()">
+                            Next Article
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="products-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Product Reviews</h2>
+                    <p class="section-subtitle">In-depth analysis of cutting-edge technology</p>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Platforms Section -->
+        <section id="platforms" class="platforms-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Platform Insights</h2>
+                    <p class="section-subtitle">Comprehensive reviews of digital platforms</p>
+                </div>
+                <div class="platforms-grid" id="platformsGrid">
+                    <!-- Platforms will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h3>Stay Updated</h3>
+                        <p>Get the latest tech insights delivered to your inbox</p>
+                    </div>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button class="btn btn-primary newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Infosphere</h2>
+                    <p>Infosphere is your premier destination for technology reviews, platform insights, and product recommendations. We're passionate about exploring the digital universe and sharing our discoveries with tech enthusiasts worldwide.</p>
+                    <p>Our team of expert reviewers and analysts work tirelessly to bring you unbiased, comprehensive coverage of the latest technologies, platforms, and products shaping our digital future.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Reviews Published</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Monthly Readers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Platforms Analyzed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-visual">
+                        <div class="tech-icons">
+                            <i class="fab fa-react"></i>
+                            <i class="fab fa-python"></i>
+                            <i class="fas fa-cloud"></i>
+                            <i class="fas fa-mobile-alt"></i>
+                            <i class="fas fa-database"></i>
+                            <i class="fab fa-aws"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions about our reviews or want to suggest a product for evaluation? We'd love to hear from you.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@infosphere.tech</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <span class="logo-text">Infosphere</span>
+                    </div>
+                    <p>Exploring the digital universe, one review at a time.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Content</h4>
+                    <ul>
+                        <li><a href="#articles">Articles</a></li>
+                        <li><a href="#products">Product Reviews</a></li>
+                        <li><a href="#platforms">Platform Insights</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Infosphere. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
