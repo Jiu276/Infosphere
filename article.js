@@ -1,6 +1,7 @@
 // Article detail page JavaScript
 let currentArticleId = null;
 let currentArticle = null;
+let currentArticleSlug = null;
 
 // DOM Elements
 const articleDetailContent = document.getElementById('articleDetailContent');
@@ -20,25 +21,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializePage() {
-    // Get article ID from URL parameters
+    // Get article identifier from URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const articleId = urlParams.get('id');
+    const slugParam = urlParams.get('slug');
+    const idParam = urlParams.get('id'); // fallback for old URLs
     
-    if (articleId) {
-        currentArticleId = parseInt(articleId);
+    if (slugParam) {
+        const decodedSlug = decodeURIComponent(slugParam);
+        currentArticle = articlesData.find(a => getArticleSlug(a.title) === decodedSlug);
+    } else if (idParam) {
+        currentArticleId = parseInt(idParam);
         currentArticle = articlesData.find(a => a.id === currentArticleId);
+    }
+    
+    if (currentArticle) {
+        currentArticleId = currentArticle.id;
+        currentArticleSlug = getArticleSlug(currentArticle.title);
         
-        if (currentArticle) {
-            renderArticle();
-            updateNavigation();
-            renderRelatedArticles();
-            updateBookmarkButton();
-            updatePageTitle();
-        } else {
-            showError('Article not found');
-        }
+        renderArticle();
+        updateNavigation();
+        renderRelatedArticles();
+        updateBookmarkButton();
+        updatePageTitle();
     } else {
-        showError('No article specified');
+        showError('Article not found');
     }
 }
 
@@ -76,15 +82,33 @@ function setupEventListeners() {
 
 function renderArticle() {
     if (!currentArticle) return;
+    const trendingArticles = getTrendingArticles(currentArticleId);
+    const authorName = currentArticle.author || 'Infosphere Staff';
+    const authorAvatar = `https://ui-avatars.com/api/?background=7c3aed&color=fff&name=${encodeURIComponent(authorName)}`;
+    const publishedDate = formatDate(currentArticle.date);
+    const readTime = currentArticle.readTime || '5 min read';
+    const highlightItems = [
+        `Published on ${publishedDate} and updated for the ${new Date(currentArticle.date).getFullYear()} outlook.`,
+        `Filed under ${getCategoryDisplayName(currentArticle.category)} trends with a ${readTime.replace(' read', '')} reading window.`,
+        `Authored by ${authorName}, part of the Infosphere field intelligence desk.`,
+        `Includes insights from ${getCategoryDisplayName(currentArticle.category)} operators and community submissions.`
+    ];
     
     articleDetailContent.innerHTML = `
-        <div class="article-detail-header">
-            <img src="${currentArticle.image}" alt="${currentArticle.title}" class="article-detail-image" 
+        <div class="article-breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="articles.html">Articles</a>
+            <span>/</span>
+            <span>${getCategoryDisplayName(currentArticle.category)}</span>
+        </div>
+        <div class="article-hero-card">
+            <img src="${currentArticle.image}" alt="${currentArticle.title}" class="article-hero-image" 
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="article-image-placeholder" style="display: none; height: 400px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); align-items: center; justify-content: center;">
-                <i class="fas fa-newspaper" style="font-size: 4rem; color: white;"></i>
+            <div class="article-image-placeholder" style="display: none;">
+                <i class="fas fa-newspaper"></i>
             </div>
-            <div class="article-detail-overlay">
+            <div class="article-hero-overlay">
                 <span class="article-detail-category">${getCategoryDisplayName(currentArticle.category)}</span>
                 <h1 class="article-detail-title">${currentArticle.title}</h1>
                 <div class="article-detail-meta">
@@ -94,31 +118,114 @@ function renderArticle() {
                     </div>
                     <div class="article-detail-meta-item">
                         <i class="fas fa-clock"></i>
-                        <span>${currentArticle.readTime}</span>
+                        <span>${currentArticle.readTime || '5 min read'}</span>
                     </div>
                     <div class="article-detail-meta-item">
                         <i class="fas fa-user"></i>
-                        <span>${currentArticle.author}</span>
+                        <span>${currentArticle.author || 'Infosphere Staff'}</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="article-detail-body">
-            <div class="article-detail-excerpt">
-                ${currentArticle.excerpt}
-            </div>
-            ${currentArticle.content}
-            <div class="article-tags">
-                <h4><i class="fas fa-tags"></i> Tags</h4>
-                <div class="tags-list">
-                    <span class="tag">${getCategoryDisplayName(currentArticle.category)}</span>
-                    <span class="tag">2025</span>
-                    <span class="tag">${currentArticle.readTime.replace(' read', '')}</span>
-                    <span class="tag">Featured</span>
+        <div class="article-body-grid">
+            <div class="article-main">
+                <div class="article-detail-excerpt">
+                    ${currentArticle.excerpt}
+                </div>
+                <div class="article-insights">
+                    ${insightData.map(item => `
+                        <div class="insight-card">
+                            <span>${item.label}</span>
+                            <strong>${item.value}</strong>
+                            <p>${item.hint}</p>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="article-highlight-list">
+                    <h4>Key Highlights</h4>
+                    <ul>
+                        ${highlightItems.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="article-quote-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>${currentArticle.excerpt}</p>
+                    <span>${authorName}</span>
+                </div>
+                <div class="article-chapter-nav">
+                    ${insightTopics.map(topic => `
+                        <a href="#${topic.toLowerCase().replace(/\\s+/g, '-')}" class="chip">${topic}</a>
+                    `).join('')}
+                </div>
+                ${currentArticle.content}
+                <div class="article-callout">
+                    <div>
+                        <p>Want the playbook behind this story?</p>
+                        <span>Get platform scorecards, rollout timelines, and field notes every Monday.</span>
+                    </div>
+                    <button class="btn btn-primary" type="button" onclick="document.querySelector('.sidebar-form input').focus()">Join IntelliFeed</button>
+                </div>
+                <div class="article-share-panel">
+                    <div>
+                        <p>Share this story</p>
+                        <span>Spread the signal with your team</span>
+                    </div>
+                    <div class="share-icons">
+                        <button type="button" onclick="handleShareArticle()"><i class="fas fa-share"></i></button>
+                        <button type="button" onclick="handleBookmarkArticle()"><i class="fas fa-bookmark"></i></button>
+                    </div>
+                </div>
+                <div class="article-tags">
+                    <h4><i class="fas fa-tags"></i> Tags</h4>
+                    <div class="tags-list">
+                        <span class="tag">${getCategoryDisplayName(currentArticle.category)}</span>
+                        <span class="tag">2025</span>
+                        <span class="tag">${(currentArticle.readTime || '5 min').replace(' read', '')}</span>
+                        <span class="tag">Featured</span>
+                    </div>
                 </div>
             </div>
+            <aside class="article-sidebar">
+                <div class="sidebar-card">
+                    <h4>Trending Now</h4>
+                    <ul class="trending-list">
+                        ${trendingArticles.map(article => `
+                            <li onclick="window.location.href='article.html?slug=${getArticleSlug(article.title)}'">
+                                <span>${formatDate(article.date)}</span>
+                                <h5>${article.title}</h5>
+                                <p>${getCategoryDisplayName(article.category)}</p>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div class="sidebar-card author-card">
+                    <img src="${authorAvatar}" alt="${authorName}">
+                    <h4>${authorName}</h4>
+                    <p>Editor · Infosphere Intelligence Desk</p>
+                    <ul>
+                        <li><i class="fas fa-pen"></i>${currentArticle.category.toUpperCase()} beat</li>
+                        <li><i class="fas fa-clock"></i>${currentArticle.readTime || '5 min read'}</li>
+                    </ul>
+                    <button class="btn btn-outline" type="button" onclick="handleShareArticle()">Follow Updates</button>
+                </div>
+                <div class="sidebar-card subscribe-card">
+                    <h4>Weekly Briefing</h4>
+                    <p>Actionable platform intel delivered every Monday.</p>
+                    <form class="sidebar-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </aside>
         </div>
     `;
+
+    const sidebarForm = articleDetailContent.querySelector('.sidebar-form');
+    if (sidebarForm) {
+        sidebarForm.addEventListener('submit', handleNewsletterSubmit);
+    }
+
+    setupReadingProgressObserver();
 }
 
 function updateNavigation() {
@@ -127,7 +234,7 @@ function updateNavigation() {
     // Update previous button
     if (currentIndex > 0) {
         const prevArticle = articlesData[currentIndex - 1];
-        prevArticleBtn.href = `article.html?id=${prevArticle.id}`;
+        prevArticleBtn.href = `article.html?slug=${getArticleSlug(prevArticle.title)}`;
         prevArticleBtn.querySelector('.nav-title').textContent = 
             prevArticle.title.length > 40 ? prevArticle.title.substring(0, 40) + '...' : prevArticle.title;
         prevArticleBtn.style.display = 'flex';
@@ -138,7 +245,7 @@ function updateNavigation() {
     // Update next button
     if (currentIndex < articlesData.length - 1) {
         const nextArticle = articlesData[currentIndex + 1];
-        nextArticleBtn.href = `article.html?id=${nextArticle.id}`;
+        nextArticleBtn.href = `article.html?slug=${getArticleSlug(nextArticle.title)}`;
         nextArticleBtn.querySelector('.nav-title').textContent = 
             nextArticle.title.length > 40 ? nextArticle.title.substring(0, 40) + '...' : nextArticle.title;
         nextArticleBtn.style.display = 'flex';
@@ -172,7 +279,7 @@ function renderRelatedArticles() {
     
     if (relatedArticles.length > 0) {
         relatedArticlesGrid.innerHTML = relatedArticles.map(article => `
-            <article class="related-article-card" onclick="window.location.href='article.html?id=${article.id}'">
+            <article class="related-article-card" onclick="window.location.href='article.html?slug=${getArticleSlug(article.title)}'">
                 <div class="related-article-image">
                     <img src="${article.image}" alt="${article.title}" 
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -200,6 +307,39 @@ function updatePageTitle() {
     if (currentArticle) {
         document.title = `${currentArticle.title} - Infosphere`;
     }
+}
+
+function getTrendingArticles(excludeId, limit = 4) {
+    return articlesData
+        .filter(article => article.id !== excludeId)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, limit);
+}
+
+function setupReadingProgressObserver() {
+    const progressBar = document.getElementById('readingProgressBar');
+    const articleMain = document.querySelector('.article-main');
+    if (!progressBar || !articleMain) return;
+
+    const updateProgress = () => {
+        const rect = articleMain.getBoundingClientRect();
+        const total = articleMain.scrollHeight - window.innerHeight;
+        const scrolled = Math.min(Math.max(window.scrollY - articleMain.offsetTop, 0), total);
+        const percent = total > 0 ? (scrolled / total) * 100 : 0;
+        progressBar.style.width = `${percent}%`;
+    };
+
+    updateProgress();
+    document.addEventListener('scroll', updateProgress, { passive: true });
+}
+
+function getInsightTopics(article) {
+    if (!article) return [];
+    const topicsFromContent = [];
+    const temp = document.createElement('div');
+    temp.innerHTML = article.content || '';
+    temp.querySelectorAll('h3').forEach(h => topicsFromContent.push(h.textContent.trim()));
+    return topicsFromContent.slice(0, 4);
 }
 
 function updateBookmarkButton() {

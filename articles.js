@@ -205,7 +205,7 @@ function renderArticles() {
         articlesPagination.innerHTML = '';
     } else {
         articlesGrid.innerHTML = paginatedArticles.map(article => `
-            <article class="article-card" onclick="window.location.href='article.html?id=${article.id}'">
+            <article class="article-card" onclick="window.location.href='article.html?slug=${getArticleSlug(article.title)}'">
                 <div class="article-image">
                     <img src="${article.image}" alt="${article.title}" 
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">

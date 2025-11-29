@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span class="top-pill">Breaking</span>
+                <p>New intel drop: “AI-native commerce stacks are rewriting launch timelines in APAC.”</p>
+            </div>
+            <div class="top-bar-right">
+                <span><i class="far fa-clock"></i> November 29, 2025</span>
+                <span><i class="fas fa-signal"></i> Editions · 132</span>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <nav class="navbar">
             <div class="nav-container">
@@ -21,6 +33,9 @@
                 <ul class="nav-menu">
                     <li class="nav-item">
                         <a href="#home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#today" class="nav-link">News</a>
                     </li>
                     <li class="nav-item">
                         <a href="articles.html" class="nav-link">Articles</a>
@@ -38,6 +53,10 @@
                         <a href="#contact" class="nav-link">Contact</a>
                     </li>
                 </ul>
+                <div class="nav-actions">
+                    <button class="nav-pill">Subscribe</button>
+                    <a href="#contact" class="btn btn-primary nav-cta">Get Updates</a>
+                </div>
                 <div class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -49,46 +68,440 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        Explore the <span class="gradient-text">Digital Universe</span>
-                    </h1>
+        <section id="home" class="hero hero-banner">
+            <div class="hero-overlay"></div>
+            <div class="hero-inner">
+                <span class="hero-category">Travel</span>
+                <h1 class="hero-title">The comedian says many viewers don’t believe the features Big.</h1>
                     <p class="hero-description">
-                        Your gateway to cutting-edge technology reviews, platform insights, and product recommendations that shape tomorrow's digital landscape.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="articles.html" class="btn btn-primary">Explore Articles</a>
-                        <a href="products.html" class="btn btn-outline">Latest Reviews</a>
+                    We captured the pulse of five fast-moving industries to uncover why audiences crave authenticity,
+                    how creators are adapting, and what it means for the next wave of digital experiences.
+                </p>
+                <div class="hero-meta">
+                    <div class="meta-profile">
+                        <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=80&h=80&fit=crop&crop=entropy&auto=format" alt="David Smith">
+                        <div>
+                            <p>David Smith</p>
+                            <span><i class="far fa-calendar"></i> Nov 29, 2025</span>
+                        </div>
+                    </div>
+                <div class="hero-actions">
+                    <a href="articles.html" class="btn btn-primary">Read Story</a>
+                    <a href="#technology" class="btn btn-ghost hero-secondary">
+                        <i class="fas fa-arrow-trend-up"></i>
+                        View Platform Index
+                    </a>
+                    <a href="#spotlight" class="btn btn-outline hero-outline">Watch Recap</a>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Featured Row -->
+        <section class="hero-featured" id="featured">
+            <div class="container">
+                <div class="hero-featured-head">
+                    <h3>Featured News</h3>
+                    <div class="hero-arrows">
+                        <button class="arrow-btn" id="featuredPrev" type="button"><i class="fas fa-chevron-left"></i></button>
+                        <button class="arrow-btn" id="featuredNext" type="button"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="floating-cards">
-                        <div class="card card-1">
-                            <i class="fas fa-laptop-code"></i>
-                            <span>Tech Reviews</span>
+                <div class="hero-featured-grid" id="heroFeaturedGrid">
+                    <article class="featured-card" data-article-title="China gives musical talent show a virtual makeover">
+                        <span class="featured-tag politics">Politics</span>
+                        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <h4>China gives musical talent show a virtual makeover</h4>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> John Marko</span>
+                            <span><i class="far fa-calendar"></i> Nov 28, 2025</span>
                         </div>
-                        <div class="card card-2">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Platform Analysis</span>
+                    </article>
+                    <article class="featured-card" data-article-title="Chadwick Boseman shines in his final performance">
+                        <span class="featured-tag arts">Arts</span>
+                        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <h4>Chadwick Boseman shines in his final performance</h4>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> Smith Clark</span>
+                            <span><i class="far fa-calendar"></i> Nov 27, 2025</span>
                         </div>
-                        <div class="card card-3">
-                            <i class="fas fa-rocket"></i>
-                            <span>Innovation Insights</span>
+                    </article>
+                    <article class="featured-card" data-article-title="Obituary: Jan Morris, a poet of time, place and self">
+                        <span class="featured-tag business">Business</span>
+                        <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <h4>Obituary: Jan Morris, a poet of time, place and self</h4>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> Red Walson</span>
+                            <span><i class="far fa-calendar"></i> Nov 26, 2025</span>
+                        </div>
+                    </article>
+                    <article class="featured-card" data-article-title="Lockdown ‘sci-fisolaton’ movie goes viral across APAC">
+                        <span class="featured-tag latest">Latest</span>
+                        <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <h4>Lockdown ‘sci-fisolaton’ movie goes viral across APAC</h4>
+                        <div class="card-meta">
+                            <span><i class="far fa-user"></i> Jerzzy Lamot</span>
+                            <span><i class="far fa-calendar"></i> Nov 25, 2025</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Today Section -->
+        <section class="today-section" id="today">
+            <div class="container">
+                <div class="section-headline">
+                    <div>
+                        <h3>Today</h3>
+                        <p>Stories shaping the conversation right now</p>
+                    </div>
+                    <div class="section-tabs">
+                        <button class="tab-btn active">Popular</button>
+                        <button class="tab-btn">Sports</button>
+                        <button class="tab-btn">Travel</button>
+                        <button class="tab-btn">Lifestyle</button>
+                        <button class="tab-btn">Tech</button>
+                    </div>
+                </div>
+                <div class="today-grid">
+                    <article class="news-card wide" data-article-title="Claude Wickermann to replace Graham Norton on BBC Radio 2">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=500&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div class="news-card-body">
+                            <span class="news-tag">Tech</span>
+                            <h4>Claude Wickermann to replace Graham Norton on BBC Radio 2</h4>
+                            <p>The broadcaster confirms a major shake-up aiming to attract younger listeners across Europe.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-user"></i> Alicia Vega</span>
+                                <span><i class="far fa-calendar"></i> Nov 25, 2025</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card" data-article-title="John Boyega’s subtle luxury watch is finally back in stock">
+                        <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div class="news-card-body">
+                            <span class="news-tag alt">Business</span>
+                            <h4>John Boyega’s subtle luxury watch is finally back in stock</h4>
+                            <div class="card-meta">
+                                <span><i class="far fa-user"></i> Wayne Christie</span>
+                                <span><i class="far fa-calendar"></i> Nov 24, 2025</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card" data-article-title="Indian ballet prodigy dazzles audiences in Mumbai">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div class="news-card-body">
+                            <span class="news-tag art">Travel</span>
+                            <h4>Indian ballet prodigy dazzles audiences in Mumbai</h4>
+                            <div class="card-meta">
+                                <span><i class="far fa-user"></i> Moira Kent</span>
+                                <span><i class="far fa-calendar"></i> Nov 23, 2025</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card" data-article-title="Wright beats Christie & win the travel fashion awards">
+                        <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div class="news-card-body">
+                            <span class="news-tag sport">Sports</span>
+                            <h4>Wright beats Christie &amp; win the travel fashion awards</h4>
+                            <div class="card-meta">
+                                <span><i class="far fa-user"></i> Derek Snow</span>
+                                <span><i class="far fa-calendar"></i> Nov 22, 2025</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="technology-section" id="technology">
+            <div class="container">
+                <div class="section-headline">
+                    <div>
+                        <h3>Technology</h3>
+                        <p>12 new platform notes from the Infosphere lab</p>
+                    </div>
+                    <a href="articles.html" class="text-link">View all tech stories <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="tech-grid">
+                    <article class="mini-card">
+                        <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=260&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div>
+                            <span>Jan 6, 2025</span>
+                            <h4>Musk: it was really risky to IPO the new carbon node</h4>
+                        </div>
+                    </article>
+                    <article class="mini-card">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=260&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div>
+                            <span>Jan 5, 2025</span>
+                            <h4>Macro city is being built in the desert by 2027</h4>
+                        </div>
+                    </article>
+                    <article class="mini-card">
+                        <img src="https://images.unsplash.com/photo-1478479474071-8a3014d422c8?w=400&h=260&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div>
+                            <span>Jan 4, 2025</span>
+                            <h4>Famed crew to the airport with only hand luggage</h4>
+                        </div>
+                    </article>
+                    <article class="mini-card">
+                        <img src="https://images.unsplash.com/photo-1421757295538-9c80958e75b0?w=400&h=260&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div>
+                            <span>Jan 3, 2025</span>
+                            <h4>What the one-stop data shop can’t fix yet</h4>
+                        </div>
+                    </article>
+                    <article class="mini-card">
+                        <img src="https://images.unsplash.com/photo-1501554728187-ce583db33af7?w=400&h=260&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div>
+                            <span>Jan 2, 2025</span>
+                            <h4>Foreign founders win airport innovation award</h4>
+                        </div>
+                    </article>
+                    <article class="mini-card">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=260&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div>
+                            <span>Jan 1, 2025</span>
+                            <h4>We mapped every new AI-native productivity team</h4>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotlight Video Section -->
+        <section class="spotlight-video" id="spotlight">
+            <div class="container">
+                <div class="spotlight-columns">
+                    <div class="spotlight-list">
+                        <h3>Editors’ Picks</h3>
+                        <ul>
+                            <li>
+                                <span>01</span>
+                                <div>
+                                    <h4>The Captain says plane can’t take off in crosswinds</h4>
+                                    <p>Safety memo reveals the cockpit debate that grounded Flight 270.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span>02</span>
+                                <div>
+                                    <h4>A new wave of first-look TV is quietly thriving</h4>
+                                    <p>Insiders say audience loyalty hinges on host vulnerability.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span>03</span>
+                                <div>
+                                    <h4>How rich people could help save the planet this season</h4>
+                                    <p>Philanthropists fund climate-friendly logistics corridors.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="spotlight-video-card">
+                        <div class="video-thumb">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&h=450&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                        </div>
+                        <div class="video-body">
+                            <span class="news-tag">Impact</span>
+                            <h3>How rich people could help save the planet from the climate crisis</h3>
+                            <p>We sat down with policy leaders to understand how targeted capital can unlock sustainable infrastructure.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-user"></i> Warren Gibbs</span>
+                                <span><i class="far fa-calendar"></i> Nov 24, 2025</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Search Section -->
-        <section class="search-section">
+        <!-- Public Posts -->
+        <section class="public-posts" id="community">
+            <div class="container">
+                <div class="section-headline">
+                    <div>
+                        <h3>Public Posts</h3>
+                        <p>Snippets from the community</p>
+                    </div>
+                </div>
+                <div class="public-grid">
+                    <article class="news-card">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div class="news-card-body">
+                            <span class="news-tag alt">People</span>
+                            <h4>Invisible bonds in Lagos’ motorcycle reform movement</h4>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div class="news-card-body">
+                            <span class="news-tag sport">Culture</span>
+                            <h4>The world through the eyes of a young photographer</h4>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="https://images.unsplash.com/photo-1524182576066-4c349ab0492c?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div class="news-card-body">
+                            <span class="news-tag art">Food</span>
+                            <h4>Whisk more flavor into weeknights with these staples</h4>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                        <div class="news-card-body">
+                            <span class="news-tag latest">Urban</span>
+                            <h4>Nita star Gateway becomes the film capital once again</h4>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Banner -->
+        <section class="promo-banner">
+            <div class="container">
+                <div class="promo-card">
+                    <div>
+                        <h4>Get Amazing Services 50% Off</h4>
+                        <p>Authenticity stamped experiences and editorial-grade research packs for your next product launch.</p>
+                    </div>
+                    <button class="btn btn-primary">Get Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- More News -->
+        <section class="more-news" id="more-news">
+            <div class="container">
+                <div class="more-news-grid">
+                    <div class="news-column">
+                        <div class="section-headline">
+                            <h3>More News</h3>
+                            <div class="section-tabs">
+                                <button class="tab-btn active">Politics</button>
+                                <button class="tab-btn">Sports</button>
+                                <button class="tab-btn">Travel</button>
+                                <button class="tab-btn">Lifestyle</button>
+                                <button class="tab-btn">Fashion</button>
+                            </div>
+                        </div>
+                        <article class="stack-card" data-article-title="Indiana is the best surprise of the college football season">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=320&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                            <div>
+                                <span class="news-tag">Politics</span>
+                                <h4>Indiana is the best surprise of the college football season</h4>
+                                <p>Unexpected quarterback form and daring play-calling turned the Hoosiers into headline makers.</p>
+                                <div class="card-meta">
+                                    <span><i class="far fa-user"></i> Owen Reid</span>
+                                    <span><i class="far fa-calendar"></i> Nov 28, 2025</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="stack-card" data-article-title="You could save thousands in heating with a cash-out refi now">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=320&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                            <div>
+                                <span class="news-tag alt">Business</span>
+                                <h4>You could save thousands in heating with a cash-out refi now</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-user"></i> Amanda Shore</span>
+                                    <span><i class="far fa-calendar"></i> Nov 26, 2025</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="stack-card" data-article-title="Stocks under $49 could be worth $2.7T—don’t wait to bid">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=320&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                            <div>
+                                <span class="news-tag business">Markets</span>
+                                <h4>Stocks under $49 could be worth $2.7T—don’t wait to bid</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-user"></i> Aimee Polk</span>
+                                    <span><i class="far fa-calendar"></i> Nov 23, 2025</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="stack-card" data-article-title="Elephant that fell down well fed after 12-hour rescue mission">
+                            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=500&h=320&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                            <div>
+                                <span class="news-tag art">Lifestyle</span>
+                                <h4>Elephant that fell down well fed after 12-hour rescue mission</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-user"></i> Bruce Phan</span>
+                                    <span><i class="far fa-calendar"></i> Nov 21, 2025</span>
+                                </div>
+                            </div>
+                        </article>
+                        <button class="btn btn-outline full-width">Load More</button>
+                    </div>
+                    <aside class="news-sidebar">
+                        <div class="subscribe-card">
+                            <h4>Subscribe to our mailing list</h4>
+                            <p>Weekly digest with new briefs, platform notes, and exclusive interviews.</p>
+                            <input type="email" placeholder="Enter email">
+                            <button class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <div class="featured-photos">
+                            <h4>Featured Photos</h4>
+                            <div class="photo-grid">
+                                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=200&h=200&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                                <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=200&h=200&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                                <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?w=200&h=200&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=200&h=200&fit=crop&crop=entropy&auto=format" alt="" data-fallback="true">
+                            </div>
+                        </div>
+                        <div class="ad-card">
+                            <p>Fresh Vegetable</p>
+                            <span>50% OFF</span>
+                            <button>Order now</button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signal Strip -->
+        <section class="signal-strip" id="signals">
+            <div class="container">
+                <div class="signal-grid">
+                    <div class="signal-pill">
+                        <span>Radar Drop</span>
+                        Quantum Cloud Platforms
+                        <small>New comparative data</small>
+                    </div>
+                    <div class="signal-pill">
+                        <span>Briefing</span>
+                        Creator economy monetization
+                        <small>Updated playbook</small>
+                    </div>
+                    <div class="signal-pill">
+                        <span>Lab Note</span>
+                        AR-first productivity tools
+                        <small>Hands-on verdicts</small>
+                    </div>
+                    <div class="signal-pill">
+                        <span>Community Poll</span>
+                        API-first vs No-code stacks
+                        <small>4k+ responses</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discovery Lab -->
+        <section class="search-section discovery-lab">
             <div class="container">
                 <div class="search-container">
+                    <div class="search-headline">
+                        <h3>Discovery Lab</h3>
+                        <p>Filter by mission type, depth, and sentiment.</p>
+                    </div>
                     <div class="search-bar">
                         <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="searchInput" placeholder="Search articles, products, platforms..." class="search-input">
+                        <input type="text" id="searchInput" placeholder="Try 'AI infrastructure' or 'creator stack'" class="search-input">
                         <button class="search-btn">Search</button>
                     </div>
                     <div class="category-filters">
@@ -100,6 +513,65 @@
                         <button class="category-btn" data-category="travel">Travel</button>
                         <button class="category-btn" data-category="education">Education</button>
                     </div>
+                    <div class="lab-tags">
+                        <span class="lab-tag"><i class="fas fa-fire"></i> Emerging</span>
+                        <span class="lab-tag"><i class="fas fa-shield"></i> Enterprise</span>
+                        <span class="lab-tag"><i class="fas fa-seedling"></i> Sustainability</span>
+                        <span class="lab-tag"><i class="fas fa-rocket"></i> Launch-ready</span>
+                        <span class="lab-tag"><i class="fas fa-moon"></i> Deep dive</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotlight Grid -->
+        <section class="spotlight-grid">
+            <div class="container">
+                <div class="spotlight-layout">
+                    <article class="spotlight-card hero-spotlight">
+                        <div class="card-header">
+                            <span class="pill pill-primary">Deep Dive</span>
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <h3>Signal vs. Noise: Platforms that actually scale</h3>
+                        <p>We cut through marketing speak to rank the ecosystems that compound value for teams beyond the pilot phase.</p>
+                        <ul class="spotlight-list">
+                            <li><i class="fas fa-check-circle"></i> Operator-grade scorecards</li>
+                            <li><i class="fas fa-check-circle"></i> Retention-leading playbooks</li>
+                            <li><i class="fas fa-check-circle"></i> Deployment-ready templates</li>
+                        </ul>
+                        <a href="#platforms" class="text-link">View the new platform stack <i class="fas fa-arrow-right"></i></a>
+                    </article>
+                    <div class="spotlight-card mosaic">
+                        <h4>Weekly Mosaic</h4>
+                        <div class="mosaic-grid">
+                            <div>
+                                <span>Launch Pad</span>
+                                <p>Micro-SaaS orchestration engines</p>
+                            </div>
+                            <div>
+                                <span>Market Pulse</span>
+                                <p>Compute cost realignment</p>
+                            </div>
+                            <div>
+                                <span>People & Ops</span>
+                                <p>Async rituals that stick</p>
+                            </div>
+                            <div>
+                                <span>Capital View</span>
+                                <p>Infra funds chasing AI ops</p>
+                            </div>
+                        </div>
+                    </div>
+                    <article class="spotlight-card gradient-card">
+                        <div class="card-header">
+                            <span class="pill pill-secondary">Labs</span>
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Hands-on verdicts in the Review Lab</h3>
+                        <p>From spatial headsets to pocket AI companions, we publish lab notes you can trust.</p>
+                        <a href="products.html" class="btn btn-glow">Enter the Lab</a>
+                    </article>
                 </div>
             </div>
         </section>
@@ -157,6 +629,45 @@
             </div>
         </section>
 
+        <!-- Signal Timeline -->
+        <section class="timeline-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Signal Timeline</h2>
+                    <p class="section-subtitle">Moments shaping the digital universe</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="pill pill-primary">Framework</span>
+                            <h4>Composable Platform Playbook</h4>
+                            <p>How modular governance accelerates enterprise adoption without slowing experimentation.</p>
+                            <span class="timeline-meta">This Week · 7 min read</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="pill pill-secondary">Field Note</span>
+                            <h4>Latency wars in AI-native tooling</h4>
+                            <p>GPU-denser regions are popping up in unexpected territories—our benchmarks tell the story.</p>
+                            <span class="timeline-meta">48 hrs ago · Bench data</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <span class="pill pill-neutral">Community</span>
+                            <h4>Founder AMA: Operating in attention-scarce markets</h4>
+                            <p>Live notes and takeaways from our latest community lab with early-stage operators.</p>
+                            <span class="timeline-meta">Live transcript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Products Section -->
         <section id="products" class="products-section">
             <div class="container">
@@ -179,6 +690,43 @@
                 </div>
                 <div class="platforms-grid" id="platformsGrid">
                     <!-- Platforms will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Hub -->
+        <section class="media-hub">
+            <div class="container">
+                <div class="media-grid">
+                    <div class="media-card">
+                        <span class="pill pill-secondary">Podcast</span>
+                        <h3>Inside the Lab Ep. 06</h3>
+                        <p>Deconstructing the new wave of AI-native CRMs with real revenue data.</p>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-headphones"></i>
+                            Listen now
+                        </button>
+                    </div>
+                    <div class="media-card video-card">
+                        <span class="pill pill-primary">Video Brief</span>
+                        <h3>Platform Radar: Asia Pacific</h3>
+                        <p>5-minute cinematic breakdown of the fastest-moving infra teams.</p>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-play"></i>
+                            Watch briefing
+                        </button>
+                    </div>
+                    <div class="media-card community-card">
+                        <span class="pill pill-neutral">Community</span>
+                        <h3>Operator Circles</h3>
+                        <p>Small-group working sessions with product, design, and revenue leaders.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Monthly prompts</li>
+                            <li><i class="fas fa-check"></i> Playbook swaps</li>
+                            <li><i class="fas fa-check"></i> Accountability partners</li>
+                        </ul>
+                        <button class="btn btn-glow">Reserve a seat</button>
+                    </div>
                 </div>
             </div>
         </section>

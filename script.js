@@ -273,8 +273,242 @@ const articlesData = [
                 <p>Teaching adaptability, resilience, and lifelong learning skills prepares children for rapidly changing world conditions. Focus on character development alongside academic achievement creates well-rounded individuals.</p>
             </div>
         `
+    },
+    {
+        id: 21,
+        title: "China gives musical talent show a virtual makeover",
+        excerpt: "Producers of China's biggest talent franchise are rebuilding live finals inside immersive LED domes and VR lounges.",
+        category: "politics",
+        image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-28",
+        readTime: "6 min read",
+        author: "John Marko",
+        content: `
+            <div class="article-full-content">
+                <p>China's flagship musical talent show is embracing virtual production to safeguard touring schedules and wow global audiences. LED tunnels and volumetric capture surround performers, while remote fans appear as holographic silhouettes.</p>
+                <h3>Immersive staging</h3>
+                <p>Contestants perform inside domes whose backdrops react to vocals in real time and sync with drone lighting. Judges say the mixed-reality staging keeps the show's energy high even without a packed studio audience.</p>
+                <h3>Why it matters</h3>
+                <p>The hybrid format lets the franchise export the show without shipping massive sets, opening new revenue streams for licensing partners and VR platforms hungry for premium content.</p>
+            </div>
+        `
+    },
+    {
+        id: 22,
+        title: "Chadwick Boseman shines in his final performance",
+        excerpt: "A posthumous short film spotlights Boseman's subtle power and galvanizes fans across global film festivals.",
+        category: "arts",
+        image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-27",
+        readTime: "5 min read",
+        author: "Smith Clark",
+        content: `
+            <div class="article-full-content">
+                <p>The late Chadwick Boseman's previously unreleased performance debuted in Lagos and immediately trended worldwide. The short film blends spoken-word narration with intimate closeups that remind viewers of his range.</p>
+                <h3>Festival circuit buzz</h3>
+                <p>Programmers report that screenings turned into communal memorials, with filmmakers discussing how Boseman pushed for authentic African storytelling inside blockbuster studios.</p>
+                <h3>Legacy projects</h3>
+                <p>Studios confirm that proceeds from the film will fund scholarships and a writers’ lab focused on underrepresented voices, extending the actor's influence to a new generation.</p>
+            </div>
+        `
+    },
+    {
+        id: 23,
+        title: "Obituary: Jan Morris, a poet of time, place and self",
+        excerpt: "Travel writer Jan Morris leaves behind a body of work that blended reportage, memoir, and imagination.",
+        category: "travel",
+        image: "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-26",
+        readTime: "7 min read",
+        author: "Red Walson",
+        content: `
+            <div class="article-full-content">
+                <p>Jan Morris chronicled cities the way composers write symphonies, mixing meticulous observation with lyrical flair. Her final essays revisit the idea that travel is as much internal as geographic.</p>
+                <h3>Literary impact</h3>
+                <p>Critics credit Morris with redefining travel journalism for the modern era, inspiring generations of reporters to center human stories over postcard clichés.</p>
+                <h3>A personal compass</h3>
+                <p>Friends describe her notebooks as maps of identity, documenting transition, curiosity, and radical empathy. The collection will be archived and digitized for public access next spring.</p>
+            </div>
+        `
+    },
+    {
+        id: 24,
+        title: "Lockdown ‘sci-fisolaton’ movie goes viral across APAC",
+        excerpt: "A micro-budget sci-fi filmed in one apartment becomes the comfort watch of the season.",
+        category: "latest",
+        image: "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-25",
+        readTime: "6 min read",
+        author: "Jerzzy Lamot",
+        content: `
+            <div class="article-full-content">
+                <p>The film “Sci-fisolaton” stars siblings who build a make-believe spaceship during quarantine. Viewers embraced its handmade props and cathartic humor, pushing it to the top of regional streaming charts.</p>
+                <h3>Community marketing</h3>
+                <p>The director mailed DIY kits so fans could recreate scenes at home, turning social feeds into a wave of pastel-colored spacecrafts and heartfelt testimonials.</p>
+                <h3>Studios take notice</h3>
+                <p>Major distributors are now negotiating a theatrical rerelease with live orchestra accompaniment, proving that micro-stories can command macro audiences.</p>
+            </div>
+        `
+    },
+    {
+        id: 25,
+        title: "Claude Wickermann to replace Graham Norton on BBC Radio 2",
+        excerpt: "BBC taps Claude Wickermann to refresh its Saturday line-up with storytelling-heavy radio.",
+        category: "business",
+        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-25",
+        readTime: "4 min read",
+        author: "Alicia Vega",
+        content: `
+            <div class="article-full-content">
+                <p>Claude Wickermann is inheriting one of the UK's most listened-to shows and promises to bring intimate interviews and creative live sessions to the weekend slot.</p>
+                <h3>Format shake-up</h3>
+                <p>Producers will experiment with serialized audio documentaries and listener-submitted field recordings, blending nostalgic radio with modern podcast pacing.</p>
+                <h3>Strategic bet</h3>
+                <p>The BBC hopes Wickermann's digital-first audience will carry over to traditional radio, keeping advertising partners engaged through 2026.</p>
+            </div>
+        `
+    },
+    {
+        id: 26,
+        title: "John Boyega’s subtle luxury watch is finally back in stock",
+        excerpt: "A minimalist watch Boyega wore during a press tour is driving waitlists from Lagos to London.",
+        category: "business",
+        image: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-24",
+        readTime: "4 min read",
+        author: "Wayne Christie",
+        content: `
+            <div class="article-full-content">
+                <p>The watchmaker reopened orders after a surprise cameo in Boyega's Tokyo interviews reignited demand. Retailers say customers crave timeless silhouettes paired with sustainable sourcing.</p>
+                <h3>Drop culture crossover</h3>
+                <p>Instead of mass restocks, the brand is releasing numbered batches tied to cities on the actor's tour, turning each colorway into a collectible postcard.</p>
+                <h3>Future collaborations</h3>
+                <p>Industry insiders hint at a charity edition supporting creative scholarships, further cementing the accessory as both status symbol and statement.</p>
+            </div>
+        `
+    },
+    {
+        id: 27,
+        title: "Indian ballet prodigy dazzles audiences in Mumbai",
+        excerpt: "A 16-year-old dancer blends Bharatanatyam with classical ballet to packed theaters.",
+        category: "travel",
+        image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-23",
+        readTime: "5 min read",
+        author: "Moira Kent",
+        content: `
+            <div class="article-full-content">
+                <p>Riya Deshpande's cross-cultural choreography stunned Mumbai's NCPA this week, with critics praising her storytelling and athleticism.</p>
+                <h3>Training fusion</h3>
+                <p>Deshpande splits time between Chennai and Paris coaches, creating a vocabulary that nods to temple rituals and modern pointe technique.</p>
+                <h3>Global tour</h3>
+                <p>Her troupe announced a Southeast Asia tour that will include free community workshops, underscoring her mission to keep classical dance accessible.</p>
+            </div>
+        `
+    },
+    {
+        id: 28,
+        title: "Wright beats Christie & win the travel fashion awards",
+        excerpt: "Stylist Amaya Wright outpaced veteran host Christie with a capsule inspired by sleeper trains.",
+        category: "lifestyle",
+        image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-22",
+        readTime: "4 min read",
+        author: "Derek Snow",
+        content: `
+            <div class="article-full-content">
+                <p>The Travel Fashion Awards crowned Wright after she unveiled modular garments lined with recycled silk maps, perfect for red-eye journeys.</p>
+                <h3>Design philosophy</h3>
+                <p>Each piece converts between lounge wear and formal attire, mirroring the flexibility frequent flyers crave.</p>
+                <h3>Industry response</h3>
+                <p>Retailers are already negotiating limited drops, while Christie congratulated Wright on stage—signaling a generational handoff in travel couture.</p>
+            </div>
+        `
+    },
+    {
+        id: 29,
+        title: "Indiana is the best surprise of the college football season",
+        excerpt: "An underdog defense and creative play-calling have turned Indiana into a must-watch spoiler.",
+        category: "sports",
+        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-20",
+        readTime: "5 min read",
+        author: "Owen Reid",
+        content: `
+            <div class="article-full-content">
+                <p>Indiana embraced chaos this season—rotating quarterbacks, scripting gadget plays, and unleashing a swarming defense that delights neutrals.</p>
+                <h3>Film-room surprises</h3>
+                <p>Coaches thrive on unscouted looks. One week it’s tempo air-raid, the next it’s pistol triple-option. Analysts say this unpredictability has overwhelmed more talented programs.</p>
+                <h3>What’s next</h3>
+                <p>With bowl bids looming, boosters are already discussing facility upgrades and NIL packages to keep the momentum rolling into 2026.</p>
+            </div>
+        `
+    },
+    {
+        id: 30,
+        title: "You could save thousands in heating with a cash-out refi now",
+        excerpt: "Homeowners are tapping equity for insulation upgrades and hybrid heat pumps before winter prices spike.",
+        category: "business",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-19",
+        readTime: "4 min read",
+        author: "Amanda Shore",
+        content: `
+            <div class="article-full-content">
+                <p>Energy auditors say a cash-out refinance can fund smart thermostats, insulation, and solar tie-ins that slash monthly bills for the next decade.</p>
+                <h3>Why refi now</h3>
+                <p>Banks are bundling green rebates with low closing costs, and contractors are booking out through March, so locking in cash early is key.</p>
+            </div>
+        `
+    },
+    {
+        id: 31,
+        title: "Stocks under $49 could be worth $2.7T—don’t wait to bid",
+        excerpt: "Small-cap infrastructure firms riding AI build-outs are attracting unusual options activity.",
+        category: "business",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-18",
+        readTime: "3 min read",
+        author: "Aimee Polk",
+        content: `
+            <div class="article-full-content">
+                <p>Analysts highlight fiber installers, thermal battery startups, and logistics REITs whose valuations lag adoption curves.</p>
+                <h3>Investment lens</h3>
+                <p>Traders recommend dollar-cost averaging rather than chasing spikes, since many of these companies are still thinly traded.</p>
+            </div>
+        `
+    },
+    {
+        id: 32,
+        title: "Elephant that fell down well fed after 12-hour rescue mission",
+        excerpt: "Forest rangers, villagers, and an improvised crane saved a calf stranded in Kerala.",
+        category: "latest",
+        image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&h=600&fit=crop&crop=entropy&auto=format",
+        date: "2025-11-17",
+        readTime: "4 min read",
+        author: "Bruce Phan",
+        content: `
+            <div class="article-full-content">
+                <p>The young elephant slipped into an irrigation well at dawn. Volunteers pumped water out, looped straps under the calf, and hoisted it to cheers.</p>
+                <h3>Community effort</h3>
+                <p>Rescuers then fed the calf sugarcane while tracking its herd with drones to ensure a safe reunion.</p>
+            </div>
+        `
     }
 ];
+
+function getArticleSlug(title) {
+    if (!title) return '';
+    return encodeURIComponent(
+        title
+            .toLowerCase()
+            .trim()
+            .replace(/[\s\/]+/g, '-')
+            .replace(/[^a-z0-9\-]+/g, '')
+            .replace(/-+/g, '-')
+    );
+}
 
 const productsData = [
     {
@@ -515,6 +749,46 @@ const productsData = [
         `
     }
 ];
+
+// Attach generic image fallback for static images using data-fallback
+document.addEventListener('DOMContentLoaded', () => {
+    const fallbackUrl = 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&crop=entropy&auto=format';
+    document.querySelectorAll('img[data-fallback]').forEach(img => {
+        img.addEventListener('error', () => {
+            if (img.dataset.fallbackApplied) return;
+            img.dataset.fallbackApplied = '1';
+            const custom = img.getAttribute('data-fallback-src');
+            img.src = custom || fallbackUrl;
+        });
+    });
+
+    // Featured news horizontal scroll controls
+    const featuredGrid = document.getElementById('heroFeaturedGrid');
+    const prevBtn = document.getElementById('featuredPrev');
+    const nextBtn = document.getElementById('featuredNext');
+    if (featuredGrid && prevBtn && nextBtn) {
+        const getStep = () => {
+            const card = featuredGrid.querySelector('.featured-card');
+            return card ? card.offsetWidth + 24 : 320;
+        };
+        prevBtn.addEventListener('click', () => {
+            featuredGrid.scrollBy({ left: -getStep(), behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+            featuredGrid.scrollBy({ left: getStep(), behavior: 'smooth' });
+        });
+    }
+
+    // Featured / today cards -> article detail
+    document.querySelectorAll('[data-article-title]').forEach(card => {
+        const title = card.getAttribute('data-article-title');
+        if (!title) return;
+        const slug = getArticleSlug(title);
+        card.addEventListener('click', () => {
+            window.location.href = `article.html?slug=${slug}`;
+        });
+    });
+});
 
 const platformsData = [
     {
@@ -1120,7 +1394,11 @@ function getCategoryDisplayName(category) {
         'business': 'Business',
         'health': 'Health',
         'travel': 'Travel',
-        'education': 'Education'
+        'education': 'Education',
+        'politics': 'Politics',
+        'arts': 'Arts',
+        'latest': 'Latest',
+        'sports': 'Sports'
     };
     return categoryMap[category] || category;
 }
