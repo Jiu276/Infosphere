@@ -87,11 +87,21 @@ function renderArticle() {
     const authorAvatar = `https://ui-avatars.com/api/?background=7c3aed&color=fff&name=${encodeURIComponent(authorName)}`;
     const publishedDate = formatDate(currentArticle.date);
     const readTime = currentArticle.readTime || '5 min read';
+    const readTimeClean = (currentArticle.readTime || '5 min').replace(' read', '');
+    const excerpt = currentArticle.excerpt || '';
+    const insightTopics = getInsightTopics(currentArticle);
+    const insightData = [
+        { label: 'Category', value: getCategoryDisplayName(currentArticle.category), hint: 'Daily intel coverage' },
+        { label: 'Published', value: publishedDate, hint: 'Updated weekly' },
+        { label: 'Read Time', value: readTime, hint: 'Perfect coffee break' },
+        { label: 'Reporter', value: authorName, hint: 'Infosphere Signals Desk' }
+    ];
     const highlightItems = [
         `Published on ${publishedDate} and updated for the ${new Date(currentArticle.date).getFullYear()} outlook.`,
         `Filed under ${getCategoryDisplayName(currentArticle.category)} trends with a ${readTime.replace(' read', '')} reading window.`,
         `Authored by ${authorName}, part of the Infosphere field intelligence desk.`,
-        `Includes insights from ${getCategoryDisplayName(currentArticle.category)} operators and community submissions.`
+        `Includes insights from ${getCategoryDisplayName(currentArticle.category)} operators and community submissions.`,
+        `${insightTopics.length ? insightTopics.join(', ') : 'Global operators'} highlighted in this storyline.`
     ];
     
     articleDetailContent.innerHTML = `
@@ -130,7 +140,7 @@ function renderArticle() {
         <div class="article-body-grid">
             <div class="article-main">
                 <div class="article-detail-excerpt">
-                    ${currentArticle.excerpt}
+                    ${excerpt}
                 </div>
                 <div class="article-insights">
                     ${insightData.map(item => `
@@ -147,15 +157,17 @@ function renderArticle() {
                         ${highlightItems.map(item => `<li>${item}</li>`).join('')}
                     </ul>
                 </div>
-                <div class="article-quote-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p>${currentArticle.excerpt}</p>
-                    <span>${authorName}</span>
-                </div>
+                ${insightTopics.length ? `
                 <div class="article-chapter-nav">
                     ${insightTopics.map(topic => `
-                        <a href="#${topic.toLowerCase().replace(/\\s+/g, '-')}" class="chip">${topic}</a>
+                        <a href="#${topic.toLowerCase().replace(/\s+/g, '-')}" class="chip">${topic}</a>
                     `).join('')}
+                </div>
+                ` : ''}
+                <div class="article-quote-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>${excerpt}</p>
+                    <span>${authorName}</span>
                 </div>
                 ${currentArticle.content}
                 <div class="article-callout">
@@ -180,7 +192,7 @@ function renderArticle() {
                     <div class="tags-list">
                         <span class="tag">${getCategoryDisplayName(currentArticle.category)}</span>
                         <span class="tag">2025</span>
-                        <span class="tag">${(currentArticle.readTime || '5 min').replace(' read', '')}</span>
+                        <span class="tag">${readTimeClean}</span>
                         <span class="tag">Featured</span>
                     </div>
                 </div>
